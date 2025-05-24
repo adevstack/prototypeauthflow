@@ -1,0 +1,48 @@
+
+# render.toml
+# Configuration for deploying Next.js app to Render.com
+# Documentation: https://render.com/docs/blueprint-spec
+
+# Specifies the service type. For a Next.js app, this is typically 'web'.
+services:
+  - type: web
+    name: prototype-for-orizn # You can change this to your preferred service name
+    env: node # Specifies the runtime environment
+    plan: free # Or your preferred plan (e.g., standard)
+    # Region where your service will be deployed (e.g., 'oregon', 'frankfurt')
+    # Choose one closest to your users or leave commented to let Render pick.
+    # region: oregon 
+    
+    # Build command: Installs dependencies and builds the Next.js app.
+    buildCommand: "npm install && npm run build"
+    
+    # Start command: Starts the Next.js production server.
+    # Next.js automatically respects the PORT environment variable set by Render.
+    startCommand: "npm run start"
+    
+    # Health check path (optional, Render often defaults well for Next.js)
+    # healthCheckPath: "/api/health" # Example, if you have a health check endpoint
+    
+    # Environment variables (if any are needed directly by the build or start command)
+    # You would typically set sensitive environment variables in the Render dashboard.
+    # envVars:
+    #   - key: NODE_ENV
+    #     value: production
+    #   - key: ANOTHER_ENV_VAR
+    #     value: its_value
+
+    # Specifies the Node.js version.
+    # It's good to use a recent LTS version. Check Render's supported versions.
+    # Ensure this matches the version you develop with if possible.
+    # Example using Node 20.
+    nodeVersion: "20"
+
+    # Static Publishing (if you were deploying a purely static site, which Next.js is not by default)
+    # publishDirectory: "out" # Only if using `next export`
+
+# Optional: Define databases, background workers, etc.
+# databases:
+#   - name: my_database
+#     databaseName: mydb
+#     user: myuser
+#     plan: free

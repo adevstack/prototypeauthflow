@@ -1,0 +1,136 @@
+
+@keyframes bladeRunnerHologram {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 50% 100%; }
+  75% { background-position: 0% 50%; }
+  100% { background-position: 0% 0%; }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme based on Original PRD */
+    --background: 0 0% 94%; /* Light gray (#F0F0F0) */
+    --foreground: 240 10% 3.9%; /* Dark gray for text */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 270 50% 40%; /* Vibrant Indigo (#663399) */
+    --primary-foreground: 210 40% 98%; /* Light text for contrast on primary */
+
+    --secondary: 240 4.8% 95.9%; /* Lighter gray */
+    --secondary-foreground: 240 5.9% 10%; /* Darker gray text */
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%; /* Muted text color */
+
+    --accent: 270 45% 65%; /* Soft Violet (#A782C9) */
+    --accent-foreground: 0 0% 98%; /* White/Very Light text on accent */
+
+    --destructive: 0 84.2% 60.2%; /* Standard red */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 5.9% 90%; /* Subtle border for light theme */
+    --input: 240 5.9% 90%;
+    --ring: 270 50% 40%; /* Primary color for rings */
+
+    --chart-1: 270 50% 50%; /* Indigo variant */
+    --chart-2: 270 45% 70%; /* Violet variant */
+    --chart-3: 30 85% 60%;  /* Orange (can keep for contrast) */
+    --chart-4: 220 60% 65%; /* Blue (can keep for contrast) */
+    --chart-5: 0 0% 60%;    /* Grey */
+    
+    --radius: 0.5rem;
+
+    /* Sidebar colors - Light Theme */
+    --sidebar-background: 0 0% 90%; /* Slightly darker light gray for sidebar */
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 270 50% 40%; /* Indigo */
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 0 0% 85%; /* Slightly darker gray for hover */
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 0 0% 80%;
+    --sidebar-ring: 270 50% 40%;
+  }
+
+  .dark {
+    /* Blade Runner Dark Theme */
+    --background: 220 20% 5%; /* Even Darker Desaturated Blue */
+    --foreground: 200 60% 88%; /* Slightly brighter text */
+
+    --card: 220 15% 12%;
+    --card-foreground: 200 60% 88%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 200 60% 88%;
+
+    --primary: 190 90% 60%; /* Slightly brighter Cyan */
+    --primary-foreground: 220 15% 5%;
+
+    --secondary: 210 40% 22%;
+    --secondary-foreground: 200 50% 75%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 200 40% 60%;
+
+    --accent: 260 80% 70%; /* Slightly brighter Purple/Magenta */
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 28%;
+    --input: 220 15% 20%;
+    --ring: 190 90% 65%;
+
+    --chart-1: 190 80% 65%;
+    --chart-2: 260 70% 65%;
+    --chart-3: 30 85% 65%;
+    --chart-4: 220 60% 70%;
+    --chart-5: 0 0% 70%;
+
+    /* Sidebar dark colors - Blade Runner Dark */
+    --sidebar-background: 220 20% 4%;
+    --sidebar-foreground: 200 60% 85%;
+    --sidebar-primary: 190 90% 60%;
+    --sidebar-primary-foreground: 220 15% 5%;
+    --sidebar-accent: 210 35% 18%;
+    --sidebar-accent-foreground: 200 60% 92%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 190 90% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground; /* Use CSS variables for default */
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    /* Hologram/Blade Runner inspired animated background - only for dark theme */
+    background: linear-gradient(225deg, 
+      hsl(var(--background)), /* Uses the CSS variable for the base */
+      hsl(235, 35%, 18%), /* Darker Indigo */
+      hsl(195, 55%, 22%), /* Dark Teal/Cyan hint */
+      hsl(265, 45%, 15%)   /* Deep Purple hint */
+    );
+    background-size: 500% 500%; /* Larger size for smoother, slower animation */
+    animation: bladeRunnerHologram 40s ease infinite alternate; /* Slower, more subtle animation, alternates direction */
+  }
+}
