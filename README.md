@@ -1,5 +1,4 @@
-
-# Firebase Studio / Prototype for Orizn
+Prototype for Orizn
 
 This is a NextJS starter in Firebase Studio, demonstrating a comprehensive authentication module prototype: **Prototype for Orizn**.
 
