@@ -1,6 +1,6 @@
 Prototype for Orizn
 
-This is a NextJS starter in Firebase Studio, demonstrating a comprehensive authentication module prototype: **Prototype for Orizn**.
+This is a NextJS Project, demonstrating a comprehensive authentication module prototype: **Prototype for Orizn**.
 
 To get started, explore the different authentication flows:
 - Navigate to `/login` for Email/Password and Social (Google) Sign-In.
